@@ -24,6 +24,11 @@ func RegisterPath(f *fiber.App,
 	// Authentication route
 	v1.Post("/login", authCon.Login)
 
+	// Public book routes
+	publicBukuRoutes := v1.Group("/buku")
+	publicBukuRoutes.Get("/", bukuCon.GetAllBuku)
+	publicBukuRoutes.Get("/:id", bukuCon.GetBukuByID)
+
 	// Protected routes (example)
 	adminRoutes := v1.Group("/admin")
 	adminRoutes.Use(jwtAuth.Protected()) // Apply JWT protection to admin routes

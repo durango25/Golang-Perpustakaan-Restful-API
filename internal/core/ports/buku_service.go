@@ -29,6 +29,10 @@ type IBukuService interface {
 	CreatePenulisBuku(data domain.Penulis_Buku) (domain.Penulis_Buku, error)
 	UpdatePenulisBuku(data domain.Penulis_Buku) (domain.Penulis_Buku, error)
 	HapusPenulisBuku(id string) error
+
+	// buku
+	GetAllBuku() ([]domain.Buku, error)
+	GetBukuByID(id string) (*domain.Buku, error)
 }
 
 //go:generate mockery --name IBukuRepository
@@ -62,4 +66,8 @@ type IBukuRepository interface {
 	GetAllPenulisBuku() ([]domain.Penulis_Buku, error)
 	CariPenulisBuku(c string) ([]domain.Penulis_Buku, error)
 	GetPenulisBukuById(id string) (*domain.Penulis_Buku, error)
+
+	// buku
+	GetAllBuku() ([]domain.Buku, error)
+	GetBukuByID(id string) (*domain.Buku, error)
 }
