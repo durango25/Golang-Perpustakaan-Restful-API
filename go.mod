@@ -1,12 +1,15 @@
 module github.com/afrizal423/Golang-Perpustakaan-Restful-API
 
-go 1.19
+go 1.21
+
+toolchain go1.23.3
 
 require (
 	github.com/alexedwards/argon2id v0.0.0-20211130144151-3585854a6387
 	github.com/go-playground/validator/v10 v10.11.1
 	github.com/go-sql-driver/mysql v1.7.0
 	github.com/gofiber/fiber/v2 v2.41.0
+	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/golang-migrate/migrate/v4 v4.15.2
 	github.com/joho/godotenv v1.4.0
 	github.com/oklog/ulid/v2 v2.1.0
