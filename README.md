@@ -130,6 +130,64 @@ Project sederhana membuat Sistem Informasi Perpustakaan berbasis Restful API men
   }
   ```
 
+#### Modul Buku (Publik)
+
+##### 1. Mendapatkan Semua Buku
+- **Endpoint:** `GET /api/v1/buku`
+- **Deskripsi:** Mendapatkan daftar semua buku yang tersedia.
+- **Respons Sukses (200 OK):**
+  ```json
+  {
+    "error": false,
+    "msg": "Success get all buku",
+    "data": [
+      {
+        "id_buku": "01H019WHW4A45KH65AH9XW89PC",
+        "isbn": "INIISBNKE1",
+        "id_kategori_buku": "id_kategori_sample",
+        "judul_buku": "Ini buku ke 1",
+        "id_penulis_buku": "id_penulis_sample",
+        "id_penerbit_buku": "id_penerbit_sample",
+        "tahun_terbit": "2020",
+        "stok_buku": 10,
+        "rak_buku": "A01",
+        "deskripsi_buku": "Ini deskripsi kali ya, bagian buku 1",
+        "gambar_buku": null,
+        "kondisi_buku": null,
+        "created_at": "2023-01-01T00:00:00Z",
+        "updated_at": "2023-01-01T00:00:00Z"
+      }
+    ]
+  }
+  ```
+
+##### 2. Mendapatkan Detail Buku
+- **Endpoint:** `GET /api/v1/buku/:id`
+- **Deskripsi:** Mendapatkan detail lengkap buku berdasarkan ID-nya.
+- **Respons Sukses (200 OK):**
+  ```json
+  {
+    "error": false,
+    "msg": "Success get buku by ID",
+    "data": {
+      "id_buku": "01H019WHW4A45KH65AH9XW89PC",
+      "isbn": "INIISBNKE1",
+      "id_kategori_buku": "id_kategori_sample",
+      "judul_buku": "Ini buku ke 1",
+      "id_penulis_buku": "id_penulis_sample",
+      "id_penerbit_buku": "id_penerbit_sample",
+      "tahun_terbit": "2020",
+      "stok_buku": 10,
+      "rak_buku": "A01",
+      "deskripsi_buku": "Ini deskripsi kali ya, bagian buku 1",
+      "gambar_buku": null,
+      "kondisi_buku": null,
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  }
+  ```
+
 #### Modul Buku (Membutuhkan Autentikasi)
 
 ##### 1. Jenis Buku
