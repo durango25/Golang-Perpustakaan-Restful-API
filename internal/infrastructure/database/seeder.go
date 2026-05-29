@@ -12,4 +12,5 @@ func Seeder(dbx *gorm.DB) {
 	}
 	s.Seed_admin()
 	s.Seed_Buku()
+	s.Seed_Anggota()
 }
