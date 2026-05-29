@@ -32,7 +32,9 @@ func (r *PeminjamanRepository) CreatePeminjaman(peminjaman *domain.Peminjaman) e
 }
 
 func (r *PeminjamanRepository) UpdatePeminjaman(peminjaman *domain.Peminjaman) error {
-	return r.db.Save(peminjaman).Error
+	return r.db.Model(peminjaman).
+		Select("id_anggota", "tgl_pinjam", "tgl_hrs_kembali", "jaminan").
+		Updates(peminjaman).Error
 }
 
 func (r *PeminjamanRepository) DeletePeminjaman(id string) error {
