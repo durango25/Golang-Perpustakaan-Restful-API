@@ -41,7 +41,7 @@ func (r *PeminjamanRepository) DeletePeminjaman(id string) error {
 
 func (r *PeminjamanRepository) GetDetailPeminjaman(id string) (*domain.Peminjaman, error) {
 	var peminjaman domain.Peminjaman
-	err := r.db.Preload("Anggota").Preload("DtPeminjaman.BukuDetail").First(&peminjaman, "id_peminjaman = ?", id).Error
+	err := r.db.Preload("Anggota").Preload("Details").Preload("Details.BukuDetail").First(&peminjaman, "id_peminjaman = ?", id).Error
 	return &peminjaman, err
 }
 

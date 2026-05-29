@@ -30,7 +30,7 @@ func Migrate() {
 	db, _ := sql.Open("mysql", openConnection)
 	driver, _ := mysql.WithInstance(db, &mysql.Config{})
 	m, e := migrate.NewWithDatabaseInstance(
-		"file://database/migration",
+		"file://internal/infrastructure/database/migration",
 		"mysql",
 		driver,
 	)
