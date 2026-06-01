@@ -32,7 +32,9 @@ func (r *PeminjamanRepository) CreatePeminjaman(peminjaman *domain.Peminjaman) e
 }
 
 func (r *PeminjamanRepository) UpdatePeminjaman(peminjaman *domain.Peminjaman) error {
-	return r.db.Save(peminjaman).Error
+	return r.db.Model(peminjaman).
+		Select("id_anggota", "tgl_pinjam", "tgl_hrs_kembali", "jaminan").
+		Updates(peminjaman).Error
 }
 
 func (r *PeminjamanRepository) DeletePeminjaman(id string) error {
@@ -41,7 +43,7 @@ func (r *PeminjamanRepository) DeletePeminjaman(id string) error {
 
 func (r *PeminjamanRepository) GetDetailPeminjaman(id string) (*domain.Peminjaman, error) {
 	var peminjaman domain.Peminjaman
-	err := r.db.Preload("Anggota").Preload("DtPeminjaman.BukuDetail").First(&peminjaman, "id_peminjaman = ?", id).Error
+	err := r.db.Preload("Anggota").Preload("Details").Preload("Details.BukuDetail").First(&peminjaman, "id_peminjaman = ?", id).Error
 	return &peminjaman, err
 }
 

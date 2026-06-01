@@ -6,8 +6,8 @@ type DetailPinjam struct {
 	// gorm.Model
 	IDDetailpinjam string     `gorm:"primary_key;size:26;not null;" json:"id"`
 	IDBuku         string     `gorm:"column:id_buku;size:26" json:"id_buku"`
-	BukuDetail     []Buku     `gorm:"foreignKey:IDBuku" json:"buku"`
-	IDpeminjaman   string     `gorm:"column:id_peminjaman;size:26" json:"id_peminjaman"`
+	BukuDetail     Buku       `gorm:"foreignKey:IDBuku;references:IDBuku" json:"buku"`
+	IDPeminjaman   string     `gorm:"column:id_peminjaman;size:26" json:"id_peminjaman"`
 	DtPeminjaman   Peminjaman `gorm:"foreignKey:IDPeminjaman;" json:"peminjaman"`
 	Kondisi        string     `gorm:"size:255;not null;" json:"kondisi_buku"`
 	CreatedAt      time.Time  `gorm:"not null;" json:"created_at"`

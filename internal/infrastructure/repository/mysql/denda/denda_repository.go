@@ -32,7 +32,9 @@ func (r *DendaRepository) CreateDenda(denda *domain.Denda) error {
 }
 
 func (r *DendaRepository) UpdateDenda(denda *domain.Denda) error {
-	return r.db.Save(denda).Error
+	return r.db.Model(denda).
+		Select("jumlah_denda", "tglpinjam", "tglhrskembali", "tglkembali", "id_peminjaman", "id_anggota").
+		Updates(denda).Error
 }
 
 func (r *DendaRepository) DeleteDenda(id string) error {
